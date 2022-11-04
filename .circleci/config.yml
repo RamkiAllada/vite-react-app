@@ -2,17 +2,17 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
-# parameters: 
+parameters: 
   # api-key: 
   #   default: $api_key
   #   description: The name of the environment variable containing your Heroku API Key.
   #   type: env_var_name
-  # app-name:
-  #   default: vite-react-circleci
-  #   description: >-
-  #     Add the name of your application to an environment variable with this
-  #     name.
-  #   type: string
+  app-name:
+    default: vite-react-circleci
+    description: >-
+      Add the name of your application to an environment variable with this
+      name.
+    type: string
   # branch:
   #   default: Master
   #   description: >-
@@ -30,9 +30,6 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - run:
-          name: Deploy master to heroku
-          command: git push https://heroku:$api_key@git.heroku.com/vite-react-circleci.git
 
       - node/install-packages:
           pkg-manager: yarn
@@ -43,6 +40,13 @@ jobs:
           root: ~/project
           paths:
             - .
+  deploy: 
+    executor: heroku/default
+    steps: 
+      - checkout
+      - run:
+          name: Deploy <<parameters.branch>> to heroku
+          command: git push https://heroku:$api_key@git.heroku.com/vite-react-circleci.git
 
 workflows:
   version: 2
