@@ -8,11 +8,11 @@ parameters:
     description: The name of the environment variable containing your Heroku API Key.
     type: env_var_name
   app-name:
-     default: vite-react-circleci
-     description: >-
+    default: vite-react-circleci
+    description: >-
       Add the name of your application to an environment variable with this
       name.
-     type: string
+    type: string
 jobs:
   build_and_test:
     executor: node/default
