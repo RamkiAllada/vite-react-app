@@ -2,17 +2,17 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
-parameters: 
-  api-key: 
-    default: 0d32ee5b-0ab8-42ff-a3a9-4bf5ab2e4d86
-    description: The name of the environment variable containing your Heroku API Key.
-    type: env_var_name
-  app-name:
-    default: vite-react-circleci
-    description: >-
-      Add the name of your application to an environment variable with this
-      name.
-    type: string
+# parameters: 
+#   api-key: 
+#     default: 0d32ee5b-0ab8-42ff-a3a9-4bf5ab2e4d86
+#     description: The name of the environment variable containing your Heroku API Key.
+#     type: env_var_name
+#   app-name:
+#     default: vite-react-circleci
+#     description: >-
+#       Add the name of your application to an environment variable with this
+#       name.
+#     type: string
 jobs:
   build_and_test:
     executor: node/default
