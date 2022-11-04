@@ -13,12 +13,12 @@ parameters:
       Add the name of your application to an environment variable with this
       name.
     type: string
-  # branch:
-  #   default: Master
-  #   description: >-
-  #     Deploy the given branch. The default value is your current branch. Accepts
-  #     strings which may contain an environment variable.
-  #   type: string
+  branch:
+    default: master
+    description: >-
+      Deploy the given branch. The default value is your current branch. Accepts
+      strings which may contain an environment variable.
+    type: string
   # force:
   #   default: false
   #   description: >-
@@ -46,7 +46,7 @@ jobs:
       - checkout
       - run:
           name: Deploy <<parameters.branch>> to heroku
-          command: git push https://heroku:$api_key@git.heroku.com/vite-react-circleci.git
+          command: git push https://heroku:$api_key@git.heroku.com/<<parameters.appname>>.git
 
 workflows:
   version: 2
