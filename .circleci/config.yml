@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploy <<parameters.branch>> to heroku
+          name: Deploy master to heroku
           command: git push https://heroku:$api_key@git.heroku.com/vite-react-circleci.git
 
       - node/install-packages:
