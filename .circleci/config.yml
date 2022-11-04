@@ -2,29 +2,6 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
-parameters: 
-  # api-key: 
-  #   default: $api_key
-  #   description: The name of the environment variable containing your Heroku API Key.
-  #   type: env_var_name
-  app-name:
-    default: vite-react-circleci
-    description: >-
-      Add the name of your application to an environment variable with this
-      name.
-    type: string
-  branch:
-    default: master
-    description: >-
-      Deploy the given branch. The default value is your current branch. Accepts
-      strings which may contain an environment variable.
-    type: string
-  # force:
-  #   default: false
-  #   description: >-
-  #     Whether or not to force the git push (i.e. `git push -f`). Defaults to
-  #     false.
-  #   type: boolean
 jobs:
   build_and_test:
     executor: node/default
@@ -45,8 +22,8 @@ jobs:
     steps: 
       - checkout
       - run:
-          name: Deploy <<parameters.branch>> to heroku
-          command: git push https://heroku:$api_key@git.heroku.com/<<parameters.appname>>.git
+          name: Deploy master to heroku
+          command: git push https://heroku:$api_key@git.heroku.com/vite-react-circleci.git
 
 workflows:
   version: 2
