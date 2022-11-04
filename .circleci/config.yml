@@ -36,6 +36,5 @@ workflows:
           api-key: <<parameters.api-key>>
           app-name: <<parameters.app-name>>
           branch: master
-          force: true
           requires:
             - build_and_test
