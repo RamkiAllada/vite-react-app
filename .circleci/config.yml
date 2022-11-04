@@ -23,5 +23,9 @@ workflows:
     jobs:
       - build_and_test
       - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          api-key: 0d32ee5b-0ab8-42ff-a3a9-4bf5ab2e4d86
+          app-name: vite-react-circleci
+          branch: master
+          force: true
           requires:
             - build_and_test
