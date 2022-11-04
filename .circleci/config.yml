@@ -32,9 +32,9 @@ workflows:
   test_my_app:
     jobs:
       - build_and_test
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          api-key: "<<parameters.api-key>>"
-          app-name: "<<parameters.app-name>>"
-          branch: master
-          requires:
-            - build_and_test
+      # - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+      #     api-key: <<parameters.api-key>>
+      #     app-name: <<parameters.app-name>>
+      #     branch: master
+      #     requires:
+      #       - build_and_test
